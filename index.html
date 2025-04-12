@@ -1001,20 +1001,6 @@ src="https://www.facebook.com/tr?id=1400667957768581&ev=PageView&noscript=1"
             setTimeout(animateOnScroll, 300);
         });
     </script>
-    <!-- Meta Pixel Code -->
-<script>
-  fbq('track', 'Purchase', {
-    content_name: 'Guide Ultime Pour Immigrer Au Canada',
-    content_ids: ['guide_immigration_canada'],
-    content_type: 'product',
-    value: 8.42,
-    currency: 'USD'
-  });
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1400667957768581&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 	<script>
   gtag('event', 'purchase', {
     transaction_id: 'TX-' + Date.now(), // Génère un ID simple pour la transaction
@@ -1030,6 +1016,27 @@ src="https://www.facebook.com/tr?id=1400667957768581&ev=PageView&noscript=1"
       price: 8.42
     }]
   });
+		<!-- Meta Pixel Code -->
+			<script>
+  const eventID = 'CMDE-' + Date.now();
+
+  if (!sessionStorage.getItem('purchase_tracked')) {
+    fbq('track', 'Purchase', {
+      content_name: 'Guide Ultime Pour Immigrer Au Canada',
+      content_ids: ['guide_immigration_canada'],
+      content_type: 'product',
+      value: 8.42,
+      currency: 'USD'
+    }, {
+      eventID: eventID
+    });
+
+    sessionStorage.setItem('purchase_tracked', 'true');
+    sessionStorage.setItem('fb_event_id', eventID);
+    console.log("Event Facebook envoyé avec ID :", eventID);
+  }
+</script>
+<!-- End Meta Pixel Code -->
 </script>
 </body>
 </html>

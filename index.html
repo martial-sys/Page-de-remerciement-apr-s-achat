@@ -1015,27 +1015,26 @@ src="https://www.facebook.com/tr?id=1400667957768581&ev=PageView&noscript=1"
       quantity: 1,
       price: 8.42
     }]
-  });
-		<!-- Meta Pixel Code -->
-			<script>
-  const eventID = 'CMDE-' + Date.now();
-
-  if (!sessionStorage.getItem('purchase_tracked')) {
-    fbq('track', 'Purchase', {
-      content_name: 'Guide Ultime Pour Immigrer Au Canada',
-      content_ids: ['guide_immigration_canada'],
-      content_type: 'product',
-      value: 8.42,
-      currency: 'USD'
-    }, {
-      eventID: eventID
-    });
-    sessionStorage.setItem('purchase_tracked', 'true');
-    sessionStorage.setItem('fb_event_id', eventID);
-    console.log("Event Facebook envoyé avec ID :", eventID);
-  }
+  }}
 </script>
-<!-- End Meta Pixel Code -->
+<script>
+const eventID = 'CMDE-' + Date.now();
+
+if (!sessionStorage.getItem('purchase_tracked')) {
+  fbq('track', 'Purchase', {
+    content_name: 'Guide Ultime Pour Immigrer Au Canada',
+    content_ids: ['guide_immigration_canada'],
+    content_type: 'product',
+    value: 8.42,
+    currency: 'USD'
+  }, {
+    eventID: eventID
+  });
+
+  sessionStorage.setItem('purchase_tracked', 'true');
+  sessionStorage.setItem('fb_event_id', eventID);
+  console.log("Événement Facebook envoyé avec ID :", eventID);
+}
 </script>
 </body>
 </html>
